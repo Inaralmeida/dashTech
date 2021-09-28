@@ -14,8 +14,8 @@ const Routes = () => {
         <ThemeProvider theme={themeDefault}>
           <GlobalStyles />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/dashboard/:title" component={Dashboard} />
             <Route exact path="/login" component={Login} />
             <Route exact path='/login/newuser' component={NewUser}/>
           </Switch>

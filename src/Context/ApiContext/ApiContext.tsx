@@ -4,12 +4,14 @@ import APIReducer from "./ApiReducer"
 const InitialStateAPI: any = {
     loading: false,
     api:{
-        clientes:[],
-        fornecedores: [],
+        usuarios:[],
         marcas: [],
         cupons: [],
         produtos: [],
-        categorias: [],  
+        categorias: [],
+        vendas: [],
+        administracao: {},
+        fornecedores: []
     },
     apiUpdate: false
 

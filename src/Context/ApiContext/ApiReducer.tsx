@@ -10,7 +10,11 @@ const APIReducer = (state: any, action: any) =>{
             ...state,
             api: action.payload
         }
-
+        case 'RELOADING':
+            return{
+                ...state,
+                apiUpdate: action.payload
+            }
         default:
             return state
     }

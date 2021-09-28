@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Aside from '../Aside/Aside'
 import DashContent from '../DashContent/DashContent'
 import DashHeader from '../DashHeader/DashHeader'
 import * as S from './Layout.styles'
 
 const Layout = () => {
+    const [asideView, setAsideView] = useState(true)
     return (
-        <S.Container>
+        <S.Container asideView={asideView}>
+            
             <section className="aside">
-            <Aside/>
+            <Aside asideView={asideView}/>
 
             </section>
             <section className="header">
-            <DashHeader/>
+            <DashHeader
+            viewAside={()=> setAsideView(!asideView)}
+            />
 
             </section>
             <section className="content">

@@ -36,6 +36,17 @@ const Reducer = (state: any, action: any)=>{
                     logon: action.payload
                 }
             }
+        case 'NEW_PRODUCT':
+            return{
+                ...state,
+                produto: action.payload
+            }
+        case 'SEND_PRODUCT':
+            console.log('fui chamado')
+            return{
+                ...state,
+                produto: state.produto
+            }
         default:
             return state
     }

@@ -37,12 +37,14 @@ const GlobalStyles = createGlobalStyle`
     }
     ::-webkit-scrollbar-track{
         width: 10px;
-        background: ${p => p.theme.black};
+        border-radius: 5px;
+
+        background: ${p => p.theme.background};
     }
     ::-webkit-scrollbar-thumb{
         width: 10px;
         border-radius: 5px;
-        background: ${p => p.theme.primary};
+        background: ${p => p.theme.secundary};
     }
 
 `

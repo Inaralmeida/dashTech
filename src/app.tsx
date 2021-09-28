@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from 'react'
 import { APIState } from './Context/ApiContext/ApiContext';
 import Routes from './Routes/routes';
@@ -16,22 +17,25 @@ const App = () => {
   
     useEffect(() => {
       Promise.all([
-        api.get("/clientes"),
-        api.get("/fornecedores"),
+        api.get("/usuarios"),
         api.get("/produtos"),
         api.get("/cupons"),
         api.get("/marcas"),
         api.get("/categorias"),
-        api.get("/compras"),
+        api.get("/vendas"),
+        api.get("/fornecedores"),
+        api.get("/administracao"),
+
       ]).then((response) => {
         const dadosApi = {
-          clientes: response[0].data,
-          fornecedores: response[1].data,
-          produtos: response[2].data,
-          cupons: response[3].data,
-          marcas: response[4].data,
-          categorias: response[5].data,
-          compras: response[6].data,
+          usuarios: response[0].data,
+          produtos: response[1].data,
+          cupons: response[2].data,
+          marcas: response[3].data,
+          categorias: response[4].data,
+          vendas: response[5].data,
+          fornecedores: response[6].data,
+          administracao: response[7].data
         };
         setAPI(dadosApi);
       });
@@ -39,22 +43,25 @@ const App = () => {
   
     useEffect(() => {
       Promise.all([
-        api.get("/clientes"),
-        api.get("/fornecedores"),
+        api.get("/usuarios"),
         api.get("/produtos"),
         api.get("/cupons"),
         api.get("/marcas"),
         api.get("/categorias"),
-        api.get("/compras"),
+        api.get("/vendas"),
+        api.get("/fornecedores"),
+        api.get("/administracao"),
+
       ]).then((response) => {
         const dadosApi = {
-          clientes: response[0].data,
-          fornecedores: response[1].data,
-          produtos: response[2].data,
-          cupons: response[3].data,
-          marcas: response[4].data,
-          categorias: response[5].data,
-          compras: response[6].data,
+          usuarios: response[0].data,
+          produtos: response[1].data,
+          cupons: response[2].data,
+          marcas: response[3].data,
+          categorias: response[4].data,
+          vendas: response[5].data,
+          fornecedores: response[6].data,
+          administracao: response[7].data
         };
         setAPI(dadosApi);
       });

@@ -12,8 +12,13 @@ export const Section = styled.div`
     background-color: ${p => p.theme.black};
     color: ${p => p.theme.background};
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    > img{
+        width: 30%;
+    }
 
 `
 

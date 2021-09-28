@@ -13,5 +13,6 @@ declare module "styled-components" {
     info: string;
     warning: string;
     success: string;
+    shadow: string;
   }
 }

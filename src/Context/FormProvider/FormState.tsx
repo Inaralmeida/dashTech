@@ -1,9 +1,11 @@
 import { createContext } from "react";
+import { dataAtual } from "../../Utils/datas";
 
 export const InitalState: any = {
   loading: false,
-  cliente: {
+  usuario: {
     id: null,
+    categoria: "",
     pessoal: {
       nome: "",
       CPF: "",
@@ -23,26 +25,16 @@ export const InitalState: any = {
       cidade: "",
       logradouro: "",
       Numero: "",
+      complemento: "",
     },
-  },
-  fornecedor: {
-    id: null,
-    fiscal: {
-      cnpj: "",
-      razaoSocial: "",
-      segmento: "",
-    },
-    logon: {
-      username: "",
-      senha: "",
-      token: "",
-    },
-    endereco: {
-      cep: "",
-      UF: "",
-      cidade: "",
-      logradouro: "",
-      Numero: "",
+    profissional: {
+      cargo: "",
+      salario: "",
+      escala: "",
+      horasSemanais: "",
+      admissao: "",
+      demissao: "",
+      complemento: ""
     },
   },
   marca: {
@@ -55,27 +47,30 @@ export const InitalState: any = {
     desconto: 0,
   },
   produto: {
-    id: null,
-    nome: '',
-    url: '',
-    descricao: '',
-    fornecedorId: 0,
-    categoriaId: 0,
-    marcaId: 0,
-    preco: 0,
-    vendido: 0,
+    id:'',
+    nome: "",
+    url: "",
+    descricao: "",
+    categoriaId: '',
+    fornecedorID: '',
+    marcaId: '',
+    valorBruto: '',
+    valorVenda: '',
+    vendido: '',
+    estoque: '',
+    adicionadoEm: dataAtual(),
     avaliacoes: [
       {
-        clienteId: '',
+        clienteId: "",
         nota: 0,
-        descricao: ''
-      }
-    ]
+        descricao: "",
+      },
+    ],
   },
-  categoria:{
+  categoria: {
     id: null,
-    nome: ''
-  }
+    nome: "",
+  },
 };
 
 export const FormState = createContext(InitalState);

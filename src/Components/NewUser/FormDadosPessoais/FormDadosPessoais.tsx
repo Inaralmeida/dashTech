@@ -6,7 +6,7 @@ import * as S from "./FormDadosPessoais.styles";
 const FormDadosPessoais = () => {
   const {
     state: {
-      cliente: { pessoal },
+      usuario: { pessoal },
     },
     dispatch,
   } = useContext(FormState);

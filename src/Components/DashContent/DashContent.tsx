@@ -1,12 +1,28 @@
-import React from 'react'
-import * as S from './DashContent.styles'
+import React from "react";
+import * as S from "./DashContent.styles";
+import { Switch, Route } from "react-router-dom";
+import DashHome from "../DashHome/DashHome";
+import Entradas from "../Entradas/Entradas";
+import Saidas from "../Saidas/Saidas";
+import Produtos from "../Produtos/Produtos";
+import Clientes from "../Clientes/Clientes";
+import Funcionarios from "../Funcionarios/Funcionarios";
+import AdicionarProduto from "../Produtos/AdicionarProduto/AdicionarProduto";
 
 const DashContent = () => {
-    return (
-        <S.Container>
-            DashContent
-        </S.Container>
-    )
-}
+  return (
+    <S.Container>
+      <Switch>
+        <Route exact path='/dashboard/home' component={DashHome}/>
+        <Route exact path='/dashboard/entradas' component={Entradas}/>
+        <Route exact path='/dashboard/saidas' component={Saidas}/>
+        <Route exact path='/dashboard/produtos' component={Produtos}/>
+        <Route exact path='/dashboard/novoproduto' component={AdicionarProduto}/>
+        <Route exact path='/dashboard/clientes' component={Clientes}/>
+        <Route exact path='/dashboard/funcionarios' component={Funcionarios}/>
+      </Switch>
+    </S.Container>
+  );
+};
 
-export default DashContent
+export default DashContent;

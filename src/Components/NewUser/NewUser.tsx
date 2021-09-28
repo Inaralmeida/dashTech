@@ -7,7 +7,6 @@ import FormDadosEndereco from "./FormDadosEndereco/FormDadosEndereco";
 import FormTermsAcepted from "./FormTermsAcepted/FormTermsAcepted";
 import { BsCheckCircle, BsCircle } from "react-icons/bs";
 import { ThemeContext } from "styled-components";
-import { Form } from "../../Pages/Login/Login.styles";
 import { FormProvider } from "../../Context/FormProvider/ContextProvider";
 const NewUser = () => {
   const theme = useContext(ThemeContext);
@@ -104,7 +103,7 @@ const NewUser = () => {
               <Button
                 size={10}
                 text="Proximo"
-                type="info"
+                type="filled"
                 onclick={handleNext}
               />
             )}

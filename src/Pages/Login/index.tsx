@@ -5,11 +5,12 @@ import MessageError from "../../Components/Common/Form/MessageError/MessageError
 import Button from "../../Components/Common/Form/Button/Button";
 import {Redirect} from 'react-router-dom'
 import * as S from "./Login.styles";
+import logoDark from '../../assets/img/LogoDark2.png'
 
 const Login = () => {
   const {
     state: {
-      api: { clientes },
+      api: { usuarios },
     },
   } = useContext(APIState);
 
@@ -32,25 +33,20 @@ const Login = () => {
     e.preventDefault();
 
     // eslint-disable-next-line array-callback-return
-    clientes.map((cliente: any): void=>{
-      if(cliente.logon.username.toUpperCase() === form.username.value.toUpperCase()){
-        console.log(cliente.logon.username,form.username.value, cliente.logon.senha, form.senha.value)
-        if(cliente.logon.senha.toUpperCase() === form.senha.value.toUpperCase()){
-          if(form.senha.value !== '' && form.username.value !== ''){
-            setForm({...form, errorLogin: false})
-            localStorage.setItem('username', form.username.value)
-            localStorage.setItem('token', cliente.logon.token)
-            setRedirectTo('/dashboard')
-          }
-        }else{
-          setForm({...form, errorLogin: true})
-        }
-      }else{
-        setForm({...form, errorLogin: true})
-      }
+    const login = usuarios.filter((user: any)=>{
+      return user.id.toUpperCase() === form.username.value.toUpperCase()
      
     })
-    console.log(form);
+
+    if (login.length === 0) setForm({...form, errorLogin: true})
+    else if(login[0].logon.senha !== form.senha.value) setForm({...form, errorLogin: true})
+    else{
+      localStorage.setItem('user', login[0].logon.username)
+      localStorage.setItem('token', login[0].logon.token)
+      localStorage.setItem('nome', login[0].pessoal.nome)
+      setRedirectTo('/dashboard/home')
+    }
+    console.log(login);
   };
 
 
@@ -63,7 +59,8 @@ const Login = () => {
   return (
     <S.Container>
       <S.Section>
-        <h1>STORE TECH</h1>
+        <img src={logoDark} alt="Octaplanning logo" />
+        <h1>OCTOPLANNING</h1>
       </S.Section>
       <S.SectionForm>
         <S.Form>
@@ -99,7 +96,7 @@ const Login = () => {
             <MessageError message="Usuario ou senha incorretos" />
           )}
 
-          <Button type="submit" text="Login" size={80} onclick={handleLogin} />
+          <Button type="filled" text="Login" size={80} onclick={handleLogin} />
           <p>Ainda não é cadastrado? <a href='/login/newuser'>Clique aqui</a> e cadastre-se</p>
         </S.Form>
       </S.SectionForm>
