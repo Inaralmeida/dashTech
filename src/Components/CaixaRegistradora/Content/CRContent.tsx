@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { APIState } from "../../../Context/ApiContext/ApiContext";
 
 import * as S from "./CRContent.styles";

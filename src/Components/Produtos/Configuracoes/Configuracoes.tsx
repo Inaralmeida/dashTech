@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./Configuracoes.styles";
-import { IoIosArrowDown } from "react-icons/io";
+// import { IoIosArrowDown } from "react-icons/io";
 
 interface IConfiguracoesProps {
   defaultOption: string;
