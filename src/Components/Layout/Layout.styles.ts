@@ -9,7 +9,7 @@ export const Container = styled.div<IContainerProps>`
   height: 100vh;
   color: ${(p) => p.theme.white};
   display: grid;
-  grid-template-rows: 51px auto;
+  grid-template-rows: 61px auto;
   grid-template-columns: ${p => p.asideView ? '250px' : '80px'} auto;
   grid-template-areas:
     "aside header"

@@ -1,7 +1,7 @@
 import * as S from "./Aside.styles";
 import { BsGraphDown, BsGraphUp } from "react-icons/bs";
 import { MdDashboard } from "react-icons/md";
-import { FaUserTie, FaBox } from "react-icons/fa";
+import { FaUserTie, FaBox, FaCashRegister } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
 import { useParams } from "react-router";
 import { trataToken } from "../../Utils/trataToken";

@@ -12,7 +12,7 @@ interface ICheckboxProps{
 
 const Check = styled.div`
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: flex-start;

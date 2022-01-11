@@ -18,13 +18,15 @@ interface ITableProps {
     price: number;
     amount: number;
   }[];
+  handleSort: (by: any, type: any) => void;
 }
 
-const Table = ({ headers, produtos }: ITableProps) => {
+const Table = ({ headers, produtos, handleSort }: ITableProps) => {
   const { dispatch } = useContext(APIState);
   const [produtoDaVez, setProdutoDaVez] = useState(0);
   const [modalActive, setModalActive] = useState(false);
   const [editarProduto, setEditarProduto] = useState(false);
+
   const [notificacaoConfig, setNotificacaoConfig] = useState<any>({
     isActive: false,
     text: "",
@@ -74,23 +76,28 @@ const Table = ({ headers, produtos }: ITableProps) => {
               return (
                 <th key={index}>
                   <S.Th>
+                    {head}
 
-                  {head}
-                  <div>
-
-                  <span>
-                    <IoMdArrowDropup 
-                    cursor='pointer'
-                    onClick={()=> console.log(head, 'up')}
-                     />
-                  </span>
-                  <span>
-                    <IoMdArrowDropdown
-                    cursor='pointer'
-                    onClick={()=> console.log(head, 'down')}
-                     />
-                  </span>
-                  </div>
+                    {head === "Nome" ||
+                    head === "Preço" ||
+                    head === "Estoque" ? (
+                      <div>
+                        <span>
+                          <IoMdArrowDropup
+                            cursor="pointer"
+                            onClick={() => handleSort(head, "up")}
+                          />
+                        </span>
+                        <span>
+                          <IoMdArrowDropdown
+                            cursor="pointer"
+                            onClick={() => handleSort(head, "down")}
+                          />
+                        </span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </S.Th>
                 </th>
               );

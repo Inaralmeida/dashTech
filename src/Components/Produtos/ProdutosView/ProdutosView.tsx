@@ -13,6 +13,7 @@ const ProdutosView = () => {
   const [valueInputCod, setValueInputCod] = useState("");
   const [valueInputName, setValueInputName] = useState("");
   const [produtosRender, setProdutosRender] = useState([]);
+  const [sortBy, setSortBy] = useState([])
 
   //salvando os produtos no state para renderizar
   useEffect(() => {
@@ -64,6 +65,66 @@ const ProdutosView = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueInputName]);
 
+  useEffect(()=>{
+    if(sortBy.length > 0 ){
+      setProdutosRender(sortBy)
+      setSortBy([])
+    }
+  },[sortBy])
+
+  const handleSort = (by:any, type:any)=>{
+    let data:any= []
+    switch (by) {
+      case 'Nome':
+        if(type === 'up'){
+          data = produtos.sort((a:any,b:any)=>{
+            return a.nome < b.nome ? 1 : -1
+          })
+         setSortBy(data)
+
+        }else{
+          data = produtos.sort((a:any,b:any)=>{
+            return a.nome > b.nome ? 1 : -1
+          })
+         setSortBy(data)
+
+        }
+        break
+      case 'Preço':
+        if(type === 'up'){
+          data = produtos.sort((a:any,b:any)=>{
+            return a.valorVenda < b.valorVenda ? 1 : -1
+          })
+         setSortBy(data)
+
+        }else{
+          data = produtos.sort((a:any,b:any)=>{
+            return a.valorVenda > b.valorVenda ? 1 : -1
+          })
+         setSortBy(data)
+
+        }
+        break
+      case 'Estoque':
+        if(type === 'up'){
+          data = produtos.sort((a:any,b:any)=>{
+            return a.estoque < b.estoque ? 1 : -1
+          })
+         setSortBy(data)
+
+        }else{
+          data = produtos.sort((a:any,b:any)=>{
+            return a.estoque > b.estoque ? 1 : -1
+          })
+         setSortBy(data)
+
+        }
+        break
+      default:
+        break;
+    }
+  }
+
   //ajustando produtos para mandar para tabela
   const produtosTable = produtosRender.map((produto: any) => {
     return {
@@ -110,7 +171,7 @@ const ProdutosView = () => {
         
       </header>
       <S.Content>
-        <Table headers={headers} produtos={produtosTable} />
+        <Table headers={headers} produtos={produtosTable}  handleSort={handleSort}/>
       </S.Content>
     </S.Container>
   );

@@ -6,8 +6,9 @@ export const Container = styled.div`
   padding: 20px;
 
   > nav {
+    margin-top: 15px;
     width: 100%;
-    height: 350px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;

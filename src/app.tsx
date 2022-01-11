@@ -25,6 +25,7 @@ const App = () => {
         api.get("/vendas"),
         api.get("/fornecedores"),
         api.get("/administracao"),
+        api.get("/caixas"),
 
       ]).then((response) => {
         const dadosApi = {
@@ -35,7 +36,8 @@ const App = () => {
           categorias: response[4].data,
           vendas: response[5].data,
           fornecedores: response[6].data,
-          administracao: response[7].data
+          administracao: response[7].data,
+          caixas: response[8].data
         };
         setAPI(dadosApi);
       });
@@ -51,6 +53,7 @@ const App = () => {
         api.get("/vendas"),
         api.get("/fornecedores"),
         api.get("/administracao"),
+        api.get("/caixas"),
 
       ]).then((response) => {
         const dadosApi = {
@@ -61,7 +64,8 @@ const App = () => {
           categorias: response[4].data,
           vendas: response[5].data,
           fornecedores: response[6].data,
-          administracao: response[7].data
+          administracao: response[7].data,
+          caixas: response[8].data
         };
         setAPI(dadosApi);
       });

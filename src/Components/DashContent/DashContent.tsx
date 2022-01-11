@@ -8,6 +8,7 @@ import Produtos from "../Produtos/Produtos";
 import Clientes from "../Clientes/Clientes";
 import Funcionarios from "../Funcionarios/Funcionarios";
 import AdicionarProduto from "../Produtos/AdicionarProduto/AdicionarProduto";
+import CaixaRegistradora from "../CaixaRegistradora/CaixaRegistradora";
 
 const DashContent = () => {
   return (
@@ -20,6 +21,7 @@ const DashContent = () => {
         <Route exact path='/dashboard/novoproduto' component={AdicionarProduto}/>
         <Route exact path='/dashboard/clientes' component={Clientes}/>
         <Route exact path='/dashboard/funcionarios' component={Funcionarios}/>
+        <Route exact path='/dashboard/caixa' component={CaixaRegistradora}/>
       </Switch>
     </S.Container>
   );

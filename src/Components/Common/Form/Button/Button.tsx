@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 
 interface IButtonProps {
-  type: "success" | "warning" | "outline" | "filled";
+  type: "success" | "warning" | "outline" | "filled" | 'disabled' | 'outlineWhite';
   text?: string;
   size: number;
   disabled?: boolean;
@@ -17,6 +17,8 @@ const ButtonStyle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
 `;
 
 const Button = ({
@@ -56,12 +58,29 @@ const Button = ({
           border: `1px solid ${theme.primary}`,
         };
         return style;
+      case "outlineWhite":
+        style = {
+          color: theme.white,
+          backgroundColor: 'transparent',
+          width: `${size}%`,
+          border: `1px solid ${theme.white}`,
+        };
+        return style;
       case "filled":
         style = {
           color: theme.white,
           backgroundColor: theme.primary,
           width: `${size}%`,
           border: `1px solid ${theme.primary}`,
+        };
+        return style;
+      case "disabled":
+        style = {
+          color: theme.white,
+          backgroundColor: theme.gray,
+          width: `${size}%`,
+          border: `1px solid ${theme.gray}`,
+          cursor: 'not-allowed'
         };
         return style;
       default:

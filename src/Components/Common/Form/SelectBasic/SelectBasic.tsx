@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 interface ISelectBasicProps {
   value: string;
-  label: string,
-  disabled?: boolean,
+  label: string;
+  disabled?: boolean;
   options: {
-    id: number;
+    id: string | number;
     name: string;
   }[];
   onchange?: (e: any) => void;
@@ -20,25 +20,30 @@ const Select = styled.select`
   border: 1px solid ${(p) => p.theme.gray};
   color: black;
   cursor: pointer;
-  :disabled{
+  :disabled {
     cursor: not-allowed;
   }
 `;
 
-const SelectBasic = ({ value, options, onchange, disabled = false, label}: ISelectBasicProps) => {
-  return <Select name={value} onChange={onchange} disabled={disabled}>
+const SelectBasic = ({
+  value,
+  options,
+  onchange,
+  disabled = false,
+  label,
+}: ISelectBasicProps) => {
+  return (
+    <Select name={value} onChange={onchange} disabled={disabled}>
       <option value={undefined}>{label}</option>
-      {
-          options.map((option)=>{
-              return (
-                  <option 
-                  key={option.id}
-                  value={option.id}
-                  >{option.id}</option>
-              )
-          })
-      }
-  </Select>;
+      {options.map((option) => {
+        return (
+          <option key={option.id} value={option.id}>
+            {option.id}
+          </option>
+        );
+      })}
+    </Select>
+  );
 };
 
 export default SelectBasic;

@@ -11,7 +11,8 @@ const InitialStateAPI: any = {
         categorias: [],
         vendas: [],
         administracao: {},
-        fornecedores: []
+        fornecedores: [],
+        caixas: []
     },
     apiUpdate: false
 

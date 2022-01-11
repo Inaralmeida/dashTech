@@ -40,6 +40,11 @@ const DashHeader = ({viewAside}:IDashHeaderProps) => {
       size={30} cursor="pointer" />
 
       <section>
+
+        <a href="/caixa" onClick={()=> {
+          localStorage.setItem('caixaAberto', 'true')
+        }} target='_blank'>Abrir Caixa</a>
+        
         <span> Olá {primeiroNome(nome)}</span>
         {!dropdownActive ? (
           <IoIosArrowDown

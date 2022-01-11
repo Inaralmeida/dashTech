@@ -17,10 +17,22 @@ export const Container = styled.div`
     padding: 20px;
 
     > section{
-        width: 150px;
+        width: 350px;
         display: flex;
         align-items: center;
         justify-content: space-around;
+
+        a{
+            display: block;
+            background-color: ${p => p.theme.primary};
+            width: 150px;
+            line-height: 40px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: ${p => p.theme.white};
+            cursor: pointer;
+        }
     }
 `
 
